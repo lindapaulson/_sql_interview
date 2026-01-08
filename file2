@@ -1,0 +1,27 @@
+CREATE SEQUENCE OrderSeq
+    AS INT
+    START WITH 10001
+    INCREMENT BY 1;
+    
+-- SELECT NEXT VALUE FOR dbo.OrderSeq;
+
+
+
+
+CREATE TABLE Orders
+(
+    OrderID INT PRIMARY KEY,
+    OrderName VARCHAR(100)
+);
+
+INSERT INTO Orders (OrderID, OrderName)
+VALUES (NEXT VALUE FOR OrderSeq, 'Laptop');
+
+INSERT INTO Orders (OrderID, OrderName)
+VALUES (NEXT VALUE FOR OrderSeq, 'MAC');
+
+INSERT INTO Orders (OrderID, OrderName)
+VALUES (NEXT VALUE FOR OrderSeq, 'Mobile');
+
+
+SELECT * FROM Orders;
